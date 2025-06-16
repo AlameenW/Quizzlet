@@ -4,7 +4,7 @@ Submitted by: **Alameen Adeku**
 
 This web app: **React quiz application that tests your knowledge on Easy to Advanced Topics**
 
-Time spent: **5** hours spent in total
+Time spent: **5.5** hours spent in total
 
 ## Required Features
 
@@ -25,28 +25,19 @@ The following **required** functionality is completed:
 - [x] **Clicking on the next button displays a random new card**
 
 The following **optional** features are implemented:
-
-- [ ] Cards contain images in addition to or in place of text
-  - [ ] Some or all cards have images in place of or in addition to text
-- [ ] Cards have different visual styles such as color based on their category
-  - Example categories you can use:
-    - Difficulty: Easy/medium/hard
-    - Subject: Biology/Chemistry/Physics/Earth science
+- [x] Cards have different category displayed based on level of difficulty
 
 The following **additional** features are implemented:
 
-* [ ] List anything else that you added to improve the site's functionality!
 - [x] Implemented a back button to view previous card
 - [x] Handled Flipping card logic to ensure question side of card is displayed upon moving to next or previous card
 - [x] Displayed level of difficulty of questions based on category
 ## Video Walkthrough
 
-Here's a walkthrough of implemented required features:
-
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+A walkthrough of implemented required features can be found [here](https://imgur.com/gallery/react-quiz-app-r0VOS3Q)
 
 <!-- Replace this with whatever GIF tool you used! -->
-GIF created with ...  
+GIF created with Windows Screen Recorder.  
 <!-- Recommended tools:
 [Kap](https://getkap.co/) for macOS
 [ScreenToGif](https://www.screentogif.com/) for Windows
