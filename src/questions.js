@@ -20,8 +20,8 @@ const questions = [
   },
   {
     id: 4,
-    question: "How do you create a React application?",
-    answer: "Using create-react-app.",
+    question: "What command do you run to create a React application?",
+    answer: "npm create vite@latest",
     category: "Easy",
   },
 
