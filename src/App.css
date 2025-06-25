@@ -57,6 +57,16 @@
   color: white;
   transform: rotateX(180deg);
 }
+.correct{
+  outline: 2px solid rgb(44, 222, 44);
+}
+.wrong{
+  outline: 2px solid rgb(224, 16, 16);
+}
+input{
+  padding: 2px;
+  margin: 0 5px;
+}
 @keyframes logo-spin {
   from {
     transform: rotate(0deg);
