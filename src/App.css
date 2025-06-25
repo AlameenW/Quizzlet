@@ -67,6 +67,12 @@ input{
   padding: 2px;
   margin: 0 5px;
 }
+.streak-div{
+  margin: 10px auto;
+}
+span{
+  margin: 0 5px;
+}
 @keyframes logo-spin {
   from {
     transform: rotate(0deg);

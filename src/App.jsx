@@ -5,11 +5,15 @@ import QuizCard from "./components/QuizCard";
 function App() {
   const [activeCard, setActiveCard] = useState(0);
   const [userAnswer, setUserAnswer] = useState("");
-  const [answerStyle, setanswerStyle] = useState('')
+  const [answerStyle, setanswerStyle] = useState("");
+  const [currentStreak, setCurrentStreak] = useState(0);
+  const [longestStreak, setLongestStreak] = useState(0);
+  const [answeredCorrectly, setAnsweredCorrectly] = useState(false);
   const handleNext = () => {
     let nextCard;
-    setUserAnswer('');
-    setanswerStyle('');
+    setUserAnswer("");
+    setanswerStyle("");
+    setAnsweredCorrectly(false);
     if (activeCard == questions.length - 1) return;
     else {
       nextCard = activeCard + 1;
@@ -18,8 +22,9 @@ function App() {
   };
   const handleBack = () => {
     let prevCard;
-    setUserAnswer('');
-    setanswerStyle('');
+    setUserAnswer("");
+    setanswerStyle("");
+    setAnsweredCorrectly(false);
     if (activeCard == 0) return;
     else {
       prevCard = activeCard - 1;
@@ -27,14 +32,30 @@ function App() {
     }
   };
   const normalize = (str) => {
-    const normalized = str.trim().toLowerCase().replace(/[^\w\s]/gi, '');
+    const normalized = str
+      .trim()
+      .toLowerCase()
+      .replace(/[^\w\s]/gi, "");
     return normalized;
-  }
+  };
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (normalize(userAnswer) == normalize(questions[activeCard].answer.toLowerCase()))
-      setanswerStyle('correct');
-    else setanswerStyle('wrong');
+    let updatedStreak = currentStreak;
+    const isCorrect =
+      normalize(userAnswer) ==
+      normalize(questions[activeCard].answer.toLowerCase());
+    if (isCorrect) {
+      setanswerStyle("correct");
+      if (!answeredCorrectly) {
+        updatedStreak += 1;
+        setAnsweredCorrectly(true);
+        setCurrentStreak(updatedStreak);
+        if (updatedStreak > longestStreak) setLongestStreak(updatedStreak);
+      }
+    } else {
+      setanswerStyle("wrong");
+      setCurrentStreak(0);
+    }
   };
   return (
     <div>
@@ -42,6 +63,10 @@ function App() {
       <p>How proficient are you with React? Test your knowledge here!</p>
       <p>Number of cards: {questions.length}</p>
 
+      <div className="streak-div">
+        <span>Current streak: {currentStreak} {currentStreak>0?'🔥':''}</span>
+        <span>Longest streak: {longestStreak} </span>
+      </div>
       <QuizCard
         key={activeCard}
         question={questions[activeCard].question}
@@ -63,11 +88,7 @@ function App() {
             }}
             placeholder="Place your answer here"
           />
-          <button
-            onClick={handleSubmit}
-          >
-            Submit Guess
-          </button>
+          <button onClick={handleSubmit}>Submit Guess</button>
         </form>
       </div>
 
